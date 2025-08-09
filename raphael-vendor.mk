@@ -33,10 +33,8 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/raphael/proprietary/system_ext/etc/permissions/telephony_system-ext_privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/telephony_system-ext_privapp-permissions-qti.xml \
     vendor/xiaomi/raphael/proprietary/system_ext/etc/permissions/vendor.qti.ims.rcsservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/vendor.qti.ims.rcsservice.xml \
     vendor/xiaomi/raphael/proprietary/system_ext/etc/permissions/wfd-system-ext-privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/wfd-system-ext-privapp-permissions-qti.xml \
-    vendor/xiaomi/raphael/proprietary/system_ext/etc/seccomp_policy/wfdservice.policy:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/seccomp_policy/wfdservice.policy \
     vendor/xiaomi/raphael/proprietary/system_ext/etc/seccomp_policy/wfdservice64.policy:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/seccomp_policy/wfdservice64.policy \
     vendor/xiaomi/raphael/proprietary/system_ext/etc/sysconfig/qti_whitelist_system_ext.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/qti_whitelist_system_ext.xml \
-    vendor/xiaomi/raphael/proprietary/system_ext/etc/wfdconfigsink.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/wfdconfigsink.xml \
     vendor/xiaomi/raphael/proprietary/vendor/etc/acdbdata/Forte/Forte_Bluetooth_cal.acdb:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/Forte/Forte_Bluetooth_cal.acdb \
     vendor/xiaomi/raphael/proprietary/vendor/etc/acdbdata/Forte/Forte_Codec_cal.acdb:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/Forte/Forte_Codec_cal.acdb \
     vendor/xiaomi/raphael/proprietary/vendor/etc/acdbdata/Forte/Forte_General_cal.acdb:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/Forte/Forte_General_cal.acdb \
@@ -241,10 +239,6 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/raphael/proprietary/vendor/firmware/ipa_uc.elf:$(TARGET_COPY_OUT_VENDOR)/firmware/ipa_uc.elf \
     vendor/xiaomi/raphael/proprietary/vendor/firmware/ipa_uc.mdt:$(TARGET_COPY_OUT_VENDOR)/firmware/ipa_uc.mdt \
     vendor/xiaomi/raphael/proprietary/vendor/firmware/tfa98xx.cnt:$(TARGET_COPY_OUT_VENDOR)/firmware/tfa98xx.cnt \
-    vendor/xiaomi/raphael/proprietary/vendor/gpu/kbc/sequence_manifest.bin:$(TARGET_COPY_OUT_VENDOR)/gpu/kbc/sequence_manifest.bin \
-    vendor/xiaomi/raphael/proprietary/vendor/gpu/kbc/unified_kbcs_32.bin:$(TARGET_COPY_OUT_VENDOR)/gpu/kbc/unified_kbcs_32.bin \
-    vendor/xiaomi/raphael/proprietary/vendor/gpu/kbc/unified_kbcs_64.bin:$(TARGET_COPY_OUT_VENDOR)/gpu/kbc/unified_kbcs_64.bin \
-    vendor/xiaomi/raphael/proprietary/vendor/gpu/kbc/unified_ksqs.bin:$(TARGET_COPY_OUT_VENDOR)/gpu/kbc/unified_ksqs.bin \
     vendor/xiaomi/raphael/proprietary/vendor/lib64/camera/com.qti.sensormodule.raphael_luxvisions_imx586.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/com.qti.sensormodule.raphael_luxvisions_imx586.bin \
     vendor/xiaomi/raphael/proprietary/vendor/lib64/camera/com.qti.sensormodule.raphael_luxvisions_ov8856.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/com.qti.sensormodule.raphael_luxvisions_ov8856.bin \
     vendor/xiaomi/raphael/proprietary/vendor/lib64/camera/com.qti.sensormodule.raphael_luxvisions_s5k3l6.bin:$(TARGET_COPY_OUT_VENDOR)/lib64/camera/com.qti.sensormodule.raphael_luxvisions_s5k3l6.bin \
@@ -300,17 +294,17 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.capabilityconfigstore@1.0-impl \
     vendor.xiaomi.hardware.motor@1.0-impl \
     vulkan.adreno \
-    libC2D2 \
     libCB \
     libI420colorconvert \
     libOpenCL \
+    libOpenCL_adreno \
     libQSEEComAPI \
-    libVkLayer_q3dtools \
     libacdb-fts \
     libacdbloader \
     libacdbrtac \
     libadiertac \
     libadreno_app_profiles \
+    libadreno_compiler_cl \
     libadreno_utils \
     libadsp_default_listener \
     libadsprpc \
@@ -322,7 +316,6 @@ PRODUCT_PACKAGES += \
     libbatching \
     libbt-hidlclient \
     libbtnv \
-    libc2d30_bltlib \
     libcamera_nn_stub \
     libcamxfdalgov7 \
     libcamxfdalgov8 \
@@ -351,17 +344,15 @@ PRODUCT_PACKAGES += \
     libgeofencing \
     libgnss \
     libgps.utils \
-    libgpudataproducer \
     libgsl \
     libidl \
-    libkcl \
-    libkernelmanager \
     libkeymasterdeviceutils \
     libkeymasterprovision \
     libkeymasterutils \
     liblistensoundmodel2 \
     libllvm-glnext \
     libllvm-qcom \
+    libllvm-qgl \
     libloc_core \
     liblocation_api \
     libmdmdetect \
@@ -436,7 +427,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.vpp@1.1 \
     vendor.qti.hardware.vpp@1.2 \
     vendor.qti.hardware.vpp@1.3 \
-    vendor.qti.qspmhal@1.0_vendor \
+    vendor.qti.qspmhal@1.0 \
     libFileMux_proprietary \
     libadm \
     libadpcmdec \
@@ -834,6 +825,20 @@ PRODUCT_PACKAGES += \
     com.qualcomm.qti.ant@1.0 \
     libmmosal \
     libmmparser_lite \
+    com.qualcomm.qti.dpm.api@1.0 \
+    fm_helium \
+    lib-imsvideocodec \
+    lib-imsvt \
+    lib-imsvtextutils \
+    lib-imsvtutils \
+    libdiag_system \
+    libdpmctmgr \
+    libdpmfdmgr \
+    libdpmframework \
+    libdpmtcm \
+    libfm-hci \
+    libimscamera_jni \
+    libimsmedia_jni \
     libmmrtpdecoder \
     libmmrtpencoder \
     libwfdavenhancements \
@@ -853,25 +858,11 @@ PRODUCT_PACKAGES += \
     libwfduibcsinkinterface \
     libwfduibcsrc \
     libwfduibcsrcinterface \
-    vendor.qti.hardware.wifidisplaysession@1.0 \
-    vendor.qti.hardware.wifidisplaysession_aidl-V1-ndk \
-    com.qualcomm.qti.dpm.api@1.0 \
-    fm_helium \
-    lib-imsvideocodec \
-    lib-imsvt \
-    lib-imsvtextutils \
-    lib-imsvtutils \
-    libdiag_system \
-    libdpmctmgr \
-    libdpmfdmgr \
-    libdpmframework \
-    libdpmtcm \
-    libfm-hci \
-    libimscamera_jni \
-    libimsmedia_jni \
     vendor.qti.ImsRtpService-V1-ndk \
     vendor.qti.diaghal@1.0 \
     vendor.qti.hardware.fm@1.0 \
+    vendor.qti.hardware.wifidisplaysession@1.0 \
+    vendor.qti.hardware.wifidisplaysession_aidl-V1-ndk \
     vendor.qti.imsrtpservice@3.0 \
     vendor.qti.imsrtpservice@3.1 \
     CneApp \
@@ -987,20 +978,18 @@ PRODUCT_PACKAGES += \
     thermal-engine \
     time_daemon \
     vppservice \
-    wfdhdcphalservice \
     wfdvndservice \
     wifidisplayhalservice \
     xtra-daemon \
     xtwifi-client \
     xtwifi-inet-agent \
     dpmd \
-    wfdservice \
-    wfdservice64
+    wfdservice
 
 PRODUCT_PACKAGES += \
-    system_ext_priv-app_WfdService_lib_arm64_libwfdnative_so \
     system_ext_priv-app_ims_lib_arm64_libimscamera_jni_so \
     system_ext_priv-app_ims_lib_arm64_libimsmedia_jni_so \
+    system_ext_priv-app_WfdService_lib_arm64_libwfdnative_so \
     vendor_lib_libEGL_adreno_so \
     vendor_lib_libGLESv2_adreno_so \
     vendor_lib_libq3dtools_adreno_so \
